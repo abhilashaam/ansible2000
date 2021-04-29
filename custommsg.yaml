@@ -1,0 +1,10 @@
+---
+- hosts: linux
+  tasks:
+  - name: print file content
+    command: cat winmsi
+    register: filecontent
+  - debug: msg="File is empty"
+    when: filecount.stdout==""
+  - debug: msg="File is not empty"
+    when: filecontent.stdout!=""

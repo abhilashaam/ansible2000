@@ -1,0 +1,17 @@
+---
+- hosts: linux
+  vars:
+    training:
+      topic: ansible
+      trainer: sathish
+      mod: virtual
+      lab: aws
+      trainee: Abhilasha
+  tasks:
+  - name: print dict variable
+    debug:
+      msg: "{{ training['topic']}}"
+  - name: print another way
+    debug:
+      msg: "key is {{ item.key}} and value is {{item.value}}"
+    with_dict: "{{ training }}"
